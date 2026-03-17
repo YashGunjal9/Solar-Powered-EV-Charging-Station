@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
 <title>SolarCharge — Solar EV Charging Network</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<<<<<<< HEAD
 <script>
 /* Screen size detector — runs before paint to avoid flicker */
 (function() {
@@ -29,6 +34,8 @@
   window.addEventListener('orientationchange', function() { setTimeout(applyBreakpoint, 100); });
 })();
 </script>
+=======
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
 </head>
 <body>
 
@@ -275,12 +282,21 @@
 
       <div class="form-group">
         <label>Your vehicle</label>
+<<<<<<< HEAD
         <select id="book-vehicle" onchange="updateBookingCost()">
           <option value="30">Tata Nexon EV (30 kWh)</option>
           <option value="50.3">MG ZS EV (50.3 kWh)</option>
           <option value="77.4">Hyundai Ioniq 5 (77.4 kWh)</option>
           <option value="3.97">Ola S1 Pro (3.97 kWh)</option>
           <option value="40">Other</option>
+=======
+        <select id="book-vehicle">
+          <option>Tata Nexon EV (30 kWh)</option>
+          <option>MG ZS EV (50.3 kWh)</option>
+          <option>Hyundai Ioniq 5 (77.4 kWh)</option>
+          <option>Ola S1 Pro (3.97 kWh)</option>
+          <option>Other</option>
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
         </select>
       </div>
 
@@ -312,11 +328,14 @@
 
       <div class="cost-estimate" id="cost-estimate" style="display:none">
         <div class="cost-row"><span>Estimated energy</span><span id="est-kwh">— kWh</span></div>
+<<<<<<< HEAD
         <div class="cost-row"><span>Charger power</span><span id="est-power">— kW</span></div>
         <div class="cost-row est-time-row">
           <span>⏱ Est. charge time</span>
           <span id="est-time" style="color:#4ade80;font-weight:600">—</span>
         </div>
+=======
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
         <div class="cost-row"><span>Tariff</span><span id="est-tariff">₹6/kWh</span></div>
         <div class="cost-row"><span>Solar discount</span><span id="est-disc" style="color:#4ade80">—</span></div>
         <div class="cost-row cost-total"><span>Total estimate</span><span id="est-total">₹—</span></div>

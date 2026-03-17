@@ -489,16 +489,24 @@ select option { background: var(--bg2); }
 /* ─── MODAL ─── */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 2000;
+<<<<<<< HEAD
   background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
   display: none; align-items: flex-start; justify-content: center;
   overflow-y: auto; padding: 20px 12px;
+=======
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center;
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
 }
 .modal-overlay.open { display: flex; }
 .modal {
   background: var(--bg2); border: 1px solid var(--border2);
   border-radius: var(--radius); padding: 36px;
   width: 480px; max-width: 95vw; position: relative;
+<<<<<<< HEAD
   margin: auto;
+=======
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
 }
 .modal-close {
   position: absolute; top: 16px; right: 16px;
@@ -513,6 +521,7 @@ select option { background: var(--bg2); }
 .ticket-modal {
   background: var(--bg2); border: 1px solid var(--border2);
   border-radius: var(--radius); padding: 0;
+<<<<<<< HEAD
   width: 520px; max-width: 98vw;
   position: relative; overflow: hidden;
   margin: auto;
@@ -556,6 +565,47 @@ select option { background: var(--bg2); }
   display: inline-block; font-size: 10px; font-weight: 600;
   background: rgba(74,222,128,0.12); color: var(--green);
   border-radius: 999px; padding: 2px 8px; margin-left: 5px;
+=======
+  width: 460px; max-width: 95vw; position: relative;
+  overflow: hidden;
+}
+.ticket-header {
+  background: var(--green); padding: 20px 28px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.ticket-header-icon { font-size: 28px; }
+.ticket-header-text h2 { font-family: var(--font-head); font-size: 1.2rem; color: #0a0f0a; margin-bottom: 2px; }
+.ticket-header-text p  { font-size: 13px; color: rgba(0,0,0,0.6); }
+.ticket-body { padding: 24px 28px; }
+.ticket-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.ticket-row:last-of-type { border-bottom: none; }
+.ticket-label { color: var(--text2); font-size: 13px; }
+.ticket-value { color: var(--text); font-weight: 500; text-align: right; max-width: 60%; }
+.ticket-divider {
+  border: none; border-top: 2px dashed var(--border2);
+  margin: 16px 0;
+}
+.ticket-qr-section {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 16px 0 8px;
+}
+.ticket-qr-wrap {
+  background: #fff; border-radius: 12px; padding: 12px;
+  display: inline-block; line-height: 0;
+}
+.ticket-qr-label { font-size: 12px; color: var(--text3); text-align: center; }
+.ticket-actions {
+  display: flex; gap: 10px; margin-top: 20px; padding: 0 28px 24px;
+}
+.ticket-id-badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  background: rgba(74,222,128,0.12); color: var(--green);
+  border-radius: 999px; padding: 3px 10px; margin-left: 6px;
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
   font-family: monospace; letter-spacing: .04em;
 }
 
@@ -595,6 +645,7 @@ select option { background: var(--bg2); }
   50%       { opacity: 0.5; box-shadow: 0 0 2px var(--green); }
 }
 
+<<<<<<< HEAD
 /* ════════════════════════════════════════════
    RESPONSIVE — auto-detects all screen sizes
    ════════════════════════════════════════════
@@ -824,4 +875,25 @@ select option { background: var(--bg2); }
   #navbar, .hero-cta, .ticket-actions, footer { display: none !important; }
   .page { padding-top: 0; }
   body { background: #fff; color: #000; }
+=======
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { display: none; }
+  .hero-title { font-size: 2.8rem; }
+  .stations-layout { grid-template-columns: 1fr; }
+  .stations-map-panel { display: none; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-metrics { grid-template-columns: 1fr 1fr; }
+  .dash-chart-card, .dash-full { grid-column: 1; }
+  .booking-layout { grid-template-columns: 1fr; }
+  .booking-sidebar { order: -1; }
+  .nav-links, .nav-actions { display: none; }
+  .hamburger { display: block; margin-left: auto; }
+}
+@media (max-width: 500px) {
+  .dash-metrics { grid-template-columns: 1fr; }
+  .slots-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-title { font-size: 2rem; }
+>>>>>>> 3509f969cbff5192a6e2ffaf8fbbf648c5e0f155
 }
