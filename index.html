@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolarCharge — Solar EV Charging Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">SolarCharge</span>
+    </div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('stations')">Stations</a>
+      <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+      <a href="#" onclick="showPage('booking')">Book Slot</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-ghost" onclick="openModal('login')">Log in</button>
+      <button class="btn-primary" onclick="openModal('register')">Sign up</button>
+    </div>
+    <button class="hamburger" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- ─────────────────── HOME PAGE ─────────────────── -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="sun-orb"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">2026 · India's largest solar EV network</div>
+      <h1 class="hero-title">Charge your EV<br><span class="accent">with the sun.</span></h1>
+      <p class="hero-sub">100% solar-powered charging stations across Maharashtra & beyond. Greener miles, lower bills, zero compromise.</p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-lg" onclick="showPage('stations')">Find a station</button>
+        <button class="btn-outline btn-lg" onclick="showPage('booking')">Book a slot</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" id="h-stations">248</span><span class="stat-lbl">Stations</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num" id="h-sessions">18,420</span><span class="stat-lbl">Sessions today</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num" id="h-co2">94.2</span><span class="stat-lbl">Tons CO₂ saved</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ev-card">
+        <div class="ev-card-header">
+          <span class="ev-card-label">Live · MSEDCL Solar Hub</span>
+          <span class="ev-dot"></span>
+        </div>
+        <div class="ev-ring-wrap">
+          <svg class="ev-ring" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#1a2a1a" stroke-width="8"/>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#4ade80" stroke-width="8"
+              stroke-dasharray="251" stroke-dashoffset="63" stroke-linecap="round"
+              transform="rotate(-90 50 50)" id="ring-arc"/>
+          </svg>
+          <div class="ev-ring-center">
+            <div class="ev-pct" id="live-pct">75%</div>
+            <div class="ev-pct-lbl">charged</div>
+          </div>
+        </div>
+        <div class="ev-metrics">
+          <div><span class="ev-m-val" id="live-kw">22 kW</span><span class="ev-m-lbl">rate</span></div>
+          <div><span class="ev-m-val" style="color:#fbbf24" id="live-solar">☀ 89%</span><span class="ev-m-lbl">solar</span></div>
+          <div><span class="ev-m-val" id="live-eta">~8 min</span><span class="ev-m-lbl">ETA</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="section-tag">Why SolarCharge</div>
+    <h2 class="section-title">Built for the future of mobility</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon">☀️</div>
+        <h3>100% Solar</h3>
+        <p>Every watt from rooftop panels & battery buffers. Real-time solar share shown per session.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">⚡</div>
+        <h3>DC Fast + AC Charging</h3>
+        <p>CCS2, CHAdeMO, Type-2 — all supported. Up to 150 kW DC fast at select hubs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📅</div>
+        <h3>Smart Slot Booking</h3>
+        <p>Reserve a port in advance. AI schedules your charge during peak solar hours to cut costs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">🌱</div>
+        <h3>Carbon Dashboard</h3>
+        <p>See your CO₂ avoided, trees equivalent, and downloadable green certificates.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">💳</div>
+        <h3>Unified Wallet</h3>
+        <p>UPI, card, or SolarCharge credits. Pay-per-session or subscribe for flat monthly rates.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📊</div>
+        <h3>Live Analytics</h3>
+        <p>Per-station energy dashboards for fleet operators. REST API for ERP integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how">
+    <div class="section-tag">How it works</div>
+    <h2 class="section-title">Three steps to a greener drive</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <h3>Find a station</h3>
+        <p>Use the live map to locate the nearest solar charging hub. Filter by connector, availability, and solar purity.</p>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <h3>Book your slot</h3>
+        <p>Reserve a port for any time window. Our AI recommends peak-solar slots to minimise your cost and grid draw.</p>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <h3>Charge & track</h3>
+        <p>Scan QR on arrival. Monitor SoC, kWh, cost, and solar %. Get notified when done.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ─────────────────── STATIONS PAGE ─────────────────── -->
+<div id="page-stations" class="page">
+  <div class="page-header">
+    <h1>Charging Stations</h1>
+    <p>Live availability across the network</p>
+  </div>
+  <div class="stations-toolbar">
+    <input type="text" class="search-input" placeholder="🔍  Search city or PIN code..." oninput="filterStations(this.value)">
+    <div class="filter-chips" id="filter-chips">
+      <span class="chip active" onclick="toggleFilter(this,'all')">All</span>
+      <span class="chip" onclick="toggleFilter(this,'available')">Available</span>
+      <span class="chip" onclick="toggleFilter(this,'dc')">DC Fast</span>
+      <span class="chip" onclick="toggleFilter(this,'solar100')">100% Solar</span>
+    </div>
+  </div>
+  <div class="stations-layout">
+    <div class="stations-list" id="stations-list"><!-- JS fills --></div>
+    <div class="stations-map-panel">
+      <div class="map-mock" id="map-mock">
+        <div class="map-grid"></div>
+        <div id="map-pins"><!-- JS fills --></div>
+        <div class="map-user-dot" title="Your location"></div>
+        <div class="map-legend">
+          <span><span class="pin-dot" style="background:#4ade80"></span> Available</span>
+          <span><span class="pin-dot" style="background:#fbbf24"></span> Busy</span>
+          <span><span class="pin-dot" style="background:#f87171"></span> Offline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── DASHBOARD PAGE ─────────────────── -->
+<div id="page-dashboard" class="page">
+  <div class="page-header">
+    <h1>My Dashboard</h1>
+    <p>Your charging history and analytics</p>
+  </div>
+  <div class="dash-grid">
+    <!-- Metrics row -->
+    <div class="dash-metrics" id="dash-metrics"><!-- JS fills --></div>
+
+    <!-- Chart area -->
+    <div class="dash-card dash-chart-card">
+      <div class="dash-card-header">
+        <span class="dash-card-title">Weekly kWh charged</span>
+        <div class="seg-ctrl">
+          <button class="seg active" onclick="switchPeriod('week',this)">Week</button>
+          <button class="seg" onclick="switchPeriod('month',this)">Month</button>
+        </div>
+      </div>
+      <div class="chart-area" id="bar-chart"><!-- JS fills --></div>
+    </div>
+
+    <!-- Energy source -->
+    <div class="dash-card">
+      <div class="dash-card-header"><span class="dash-card-title">Energy source (this month)</span></div>
+      <div class="donut-wrap">
+        <svg viewBox="0 0 100 100" class="donut-svg" id="donut-svg">
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#fbbf24" stroke-width="18" stroke-dasharray="175 64" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#60a5fa" stroke-width="18" stroke-dasharray="46 193" stroke-dashoffset="-175" transform="rotate(-90 50 50)"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#6b7280" stroke-width="18" stroke-dasharray="18 221" stroke-dashoffset="-221" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="donut-legend">
+          <div class="donut-item"><span style="background:#fbbf24"></span>Solar direct <strong>73%</strong></div>
+          <div class="donut-item"><span style="background:#60a5fa"></span>Battery buffer <strong>19%</strong></div>
+          <div class="donut-item"><span style="background:#6b7280"></span>Grid <strong>8%</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session history -->
+    <div class="dash-card dash-full">
+      <div class="dash-card-header">
+        <span class="dash-card-title">Session history</span>
+        <button class="btn-sm" onclick="exportCSV()">Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table class="sessions-table" id="sessions-table">
+          <thead><tr><th>Date</th><th>Station</th><th>kWh</th><th>Cost</th><th>Solar %</th><th>CO₂ saved</th></tr></thead>
+          <tbody id="sessions-tbody"><!-- JS fills --></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── BOOKING PAGE ─────────────────── -->
+<div id="page-booking" class="page">
+  <div class="page-header">
+    <h1>Book a Slot</h1>
+    <p>Reserve your port in advance</p>
+  </div>
+  <div class="booking-layout">
+    <div class="booking-form-card">
+      <h2 class="form-section-title">Booking details</h2>
+
+      <div class="form-group">
+        <label>Select station</label>
+        <select id="book-station" onchange="loadSlots()">
+          <option value="">Choose a station...</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Your vehicle</label>
+        <select id="book-vehicle">
+          <option>Tata Nexon EV (30 kWh)</option>
+          <option>MG ZS EV (50.3 kWh)</option>
+          <option>Hyundai Ioniq 5 (77.4 kWh)</option>
+          <option>Ola S1 Pro (3.97 kWh)</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="book-date" onchange="loadSlots()" min="">
+      </div>
+
+      <div class="form-group">
+        <label>Time slot</label>
+        <div class="slots-grid" id="slots-grid">
+          <div class="slot-placeholder">Select a station and date first</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Target charge <span id="target-display">80%</span></label>
+        <input type="range" id="book-target" min="20" max="100" value="80" step="5" oninput="document.getElementById('target-display').textContent=this.value+'%';updateBookingCost()">
+      </div>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="book-name" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" id="book-phone" placeholder="+91 98765 43210">
+      </div>
+
+      <div class="cost-estimate" id="cost-estimate" style="display:none">
+        <div class="cost-row"><span>Estimated energy</span><span id="est-kwh">— kWh</span></div>
+        <div class="cost-row"><span>Tariff</span><span id="est-tariff">₹6/kWh</span></div>
+        <div class="cost-row"><span>Solar discount</span><span id="est-disc" style="color:#4ade80">—</span></div>
+        <div class="cost-row cost-total"><span>Total estimate</span><span id="est-total">₹—</span></div>
+      </div>
+
+      <button class="btn-primary btn-block" onclick="submitBooking()">Confirm booking</button>
+    </div>
+
+    <div class="booking-sidebar">
+      <div class="booking-info-card">
+        <h3>Peak solar slots</h3>
+        <p>Booking between 10 AM – 2 PM gives you maximum solar coverage and a 15% tariff discount.</p>
+        <div class="solar-timeline" id="solar-timeline">
+          <div class="tl-bar">
+            <div class="tl-label">Solar</div>
+            <div class="tl-track">
+              <div class="tl-fill" style="left:41%;width:33%"></div>
+            </div>
+          </div>
+          <div class="tl-hours">
+            <span>6am</span><span>9am</span><span>12pm</span><span>3pm</span><span>6pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-info-card" id="my-bookings-card">
+        <h3>My upcoming bookings</h3>
+        <div id="upcoming-list"><!-- JS fills --></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── MODALS ─────────────────── -->
+<div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content"><!-- JS fills --></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">⚡</span> SolarCharge
+      <p>India's greenest EV charging network, 2026.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a><a href="#">API Docs</a><a href="#">Fleet</a><a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="qr-gen.js"></script>
+<script src="db.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
